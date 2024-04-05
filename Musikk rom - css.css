@@ -1,6 +1,6 @@
 body {
     font-family: 'Courier New', Courier, monospace;
-    background-image: linear-gradient(100deg, #7d6196, #7ff0d7);
+    background-image: linear-gradient(200deg, #837d88, #7ff0d7);
     margin: 0;
     padding: 0;
     display: flex;
@@ -9,16 +9,10 @@ body {
     height: 100vh;
 }
 
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
-}
-
 h1 {
     background-color: rgba(127, 240, 215, 0.7);
     padding: 20px 50px; 
-    text-align: center;
+    text-align: right;
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); 
     animation: pulse 2s infinite;
@@ -31,5 +25,25 @@ p {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     font-size: 1.5em; 
     max-width: 60%; 
-    text-align: center; 
+    text-align: right; 
 }
+
+img {
+    width: 200px;
+    height: 250px;
+}
+
+img {
+    width: 50vw;
+    height: 100vh;
+    object-fit: cover;
+}
+
+img {
+    position: absolute;
+    left: 0;
+}
+
+
+
+
