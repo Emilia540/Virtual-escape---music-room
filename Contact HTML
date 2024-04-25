@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #b8debb;
+        }
+ 
+        h1 {
+            text-align: center;
+            color: #000;
+            font-size: 80px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .container {
+            width: 300px;
+            padding: 16px;
+            background-color: white;
+            margin: 0 auto;
+            margin-top: 100px;
+            border: 1px solid black;
+            border-radius: 4px;
+        }
+        input[type=text], input[type=email], textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            resize: vertical;
+        }
+        input[type=submit] {
+            background-color: #9e4caf;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type=submit]:hover {
+            background-color: #7245a0;
+        }
+    </style>
+    <h1> Kontakt oss</h1>
+</head>
+<body>
+    <div class="container">
+        <form action="/submit_form" method="post">
+            <label for="fname">Fornavn</label>
+            <input type="text" id="fname" name="firstname" placeholder="Ditt fornavn..">
+            <label for="lname">Etternavn</label>
+            <input type="text" id="lname" name="lastname" placeholder="Ditt etternavn..">
+            <label for="email">E-post</label>
+            <input type="email" id="email" name="email" placeholder="Din e-post..">
+            <label for="message">Melding</label>
+            <textarea id="message" name="message" placeholder="Skriv noe.." style="height:200px"></textarea>
+            <input type="submit" value="Send">
+        </form>
+    </div>
+ 
+    <div id="mapContainer" style="width: 100%; height: 400px;"></div>
+ 
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+    var platform = new H.service.Platform({
+        'apikey': '0LR8q5oUg4NIG-sGeanaMYH0AGesfp45eDXgaLj119I'
+    });
+ 
+    var defaultLayers = platform.createDefaultLayers();
+ 
+    var map = new H.Map(
+        document.getElementById('mapContainer'),
+        defaultLayers.vector.normal.map,
+        {
+            zoom: 14,
+            center: { lat: 59.6683, lng: 9.65002 } // Koordinater for Kongsberg videregående skole
+        }
+    );
+ 
+    // Opprett en koordinat for punktet
+    var coordinate = { lat: 59.6683, lng: 9.6500 }; // Koordinater for Kongsberg videregående skole
+ 
+    // Opprett en markør for koordinaten
+    var marker = new H.map.Marker(coordinate);
+ 
+    // Legg markøren til kartet
+    map.addObject(marker);
+    </script>
+</body>
+</html>
